@@ -1,0 +1,455 @@
+/* ================================================
+   theme tokens
+   ================================================ */
+
+:root,
+html[data-theme="dark"]{
+    --bg:#0a0a0a;
+    --bg-gradient:radial-gradient(circle at 50% 0%,#141414 0%,#0a0a0a 60%);
+    --surface:#111;
+    --surface-2:#1a1a1a;
+    --border:#1e1e1e;
+    --border-strong:#333;
+    --hover:#333;
+    --fg:#e8e8e8;
+    --muted:#666;
+    --gold:#f7d354;
+    --gold-dim:rgba(247,211,84,.5);
+    --gold-faint:rgba(247,211,84,.15);
+}
+
+html[data-theme="light"]{
+    --bg:#f4f4f5;
+    --bg-gradient:radial-gradient(circle at 50% 0%,#ffffff 0%,#f4f4f5 60%);
+    --surface:#ffffff;
+    --surface-2:#f0f0f2;
+    --border:#e4e4e7;
+    --border-strong:#c8c8cf;
+    --hover:#d4d4d8;
+    --fg:#18181b;
+    --muted:#71717a;
+    --gold:#c48c0a;
+    --gold-dim:rgba(196,140,10,.45);
+    --gold-faint:rgba(196,140,10,.14);
+}
+
+*{box-sizing:border-box}
+
+html,body{
+    margin:0;
+    min-height:100%;
+    background:var(--bg);
+    background-image:var(--bg-gradient);
+    color:var(--fg);
+    font-family:ui-sans-serif,system-ui,"SF Pro",Inter,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    transition:background-color .25s ease,color .25s ease;
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+    padding:max(40px,env(safe-area-inset-top)) 24px 40px;
+    gap:32px;
+    min-height:100vh;
+}
+
+/* ---------- header ---------- */
+
+.top{
+    max-width:1100px;
+    margin:0 auto;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.brand{min-width:0}
+
+.title{
+    margin:0;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.42em;
+    text-transform:uppercase;
+}
+
+.tag{
+    margin:8px 0 0;
+    font-size:12px;
+    letter-spacing:.14em;
+    color:var(--muted);
+}
+
+.theme-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    color:var(--fg);
+    font:inherit;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    padding:8px 14px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:border-color .15s,background .2s;
+}
+
+.theme-btn:hover{border-color:var(--border-strong)}
+
+.theme-icon{
+    font-size:14px;
+    line-height:1;
+    color:var(--gold);
+}
+
+/* ---------- grid ---------- */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+    gap:20px;
+    max-width:1100px;
+    margin:0 auto;
+    width:100%;
+}
+
+.card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    opacity:0;
+    transform:translateY(20px);
+    transition:border-color .2s,background-color .25s;
+}
+
+.card.in{animation:cardIn .55s ease forwards}
+@keyframes cardIn{to{opacity:1;transform:none}}
+.card:hover{border-color:var(--border-strong)}
+
+.demo{min-height:130px;display:flex;align-items:center;justify-content:center;padding:8px}
+
+.meta .num{font-size:10px;color:var(--muted);letter-spacing:.1em;margin-bottom:4px;opacity:.7}
+.meta h2{margin:0;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+.meta p{margin:6px 0 0;font-size:12px;color:var(--muted);line-height:1.5}
+
+.copy-btn{
+    background:transparent;
+    border:1px solid var(--border);
+    color:var(--muted);
+    font:inherit;
+    font-size:10px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    padding:7px 12px;
+    border-radius:6px;
+    cursor:pointer;
+    align-self:flex-start;
+    margin-top:auto;
+    transition:border-color .15s,color .15s;
+}
+
+.copy-btn:hover{border-color:var(--border-strong);color:var(--fg)}
+.copy-btn.copied{border-color:#5ddc9f;color:#5ddc9f}
+
+/* ---------- footer ---------- */
+
+.foot{
+    max-width:1100px;
+    margin:0 auto;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+    padding-top:24px;
+    border-top:1px solid var(--border);
+    font-size:11px;
+    color:var(--muted);
+    letter-spacing:.14em;
+}
+
+.foot .hint{text-transform:uppercase}
+.foot .copy a{color:var(--gold);text-decoration:none;transition:opacity .15s}
+.foot .copy a:hover{opacity:.75;text-decoration:underline}
+
+@media(max-width:520px){.foot{justify-content:center;text-align:center}}
+
+/* ================================================
+   01 ghost (themable)
+   ================================================ */
+
+.ghost{position:relative;display:block;width:100%;max-width:260px}
+.ghost input{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border-strong);padding:10px 0;color:var(--fg);font:inherit;font-size:15px;outline:none}
+.ghost span{position:absolute;left:0;top:10px;color:var(--muted);font-size:15px;pointer-events:none;transition:all .25s}
+.ghost input:focus+span,.ghost input:not(:placeholder-shown)+span{top:-10px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.ghost::after{content:"";position:absolute;bottom:0;left:50%;width:0;height:1px;background:var(--gold);transform:translateX(-50%);transition:width .3s}
+.ghost:focus-within::after{width:100%}
+
+/* ================================================
+   02 neon (fixed dark)
+   ================================================ */
+
+.neon{width:100%;max-width:260px;background:#050510;border:1px solid #ff2fb3;border-radius:8px;padding:12px 16px;color:#fff;font:inherit;font-size:14px;outline:none;box-shadow:0 0 16px rgba(255,47,179,.25),inset 0 0 8px rgba(255,47,179,.1);transition:box-shadow .3s}
+.neon::placeholder{color:#883a72}
+.neon:focus{box-shadow:0 0 32px rgba(255,47,179,.55),inset 0 0 12px rgba(255,47,179,.2);animation:neonPulse 1.6s ease-in-out infinite alternate}
+@keyframes neonPulse{from{box-shadow:0 0 24px rgba(255,47,179,.4),inset 0 0 10px rgba(255,47,179,.15)}to{box-shadow:0 0 40px rgba(255,47,179,.7),inset 0 0 18px rgba(255,47,179,.25)}}
+
+/* ================================================
+   03 brutal (fixed light)
+   ================================================ */
+
+.brutal{width:100%;max-width:260px;background:#fff;border:3px solid #000;border-radius:0;padding:12px 16px;color:#000;font:inherit;font-size:14px;font-weight:600;outline:none;box-shadow:6px 6px 0 #f7d354;transition:transform .12s,box-shadow .12s}
+.brutal::placeholder{color:#888;font-weight:400}
+.brutal:focus{transform:translate(-2px,-2px);box-shadow:8px 8px 0 #f7d354}
+
+/* ================================================
+   04 neumorph (fixed grey)
+   ================================================ */
+
+.demo-neumorph{background:#e0e5ec;border-radius:10px;padding:20px 12px;width:100%}
+.neumorph{width:100%;max-width:260px;margin:0 auto}
+.neumorph input{width:100%;background:#e0e5ec;border:none;border-radius:12px;padding:12px 16px;color:#333;font:inherit;font-size:14px;outline:none;box-shadow:inset 4px 4px 8px #b8c0cc,inset -4px -4px 8px #ffffff;transition:box-shadow .25s}
+.neumorph input::placeholder{color:#8a95a3}
+.neumorph input:focus{box-shadow:inset 6px 6px 12px #b8c0cc,inset -6px -6px 12px #ffffff}
+
+/* ================================================
+   05 glass (fixed gradient)
+   ================================================ */
+
+.demo-glass{background:radial-gradient(circle at 20% 30%,#667eea 0%,transparent 60%),radial-gradient(circle at 80% 70%,#f093fb 0%,transparent 60%),linear-gradient(135deg,#764ba2,#4a6fd4);border-radius:10px;padding:20px 12px;width:100%}
+.glass-bg{width:100%;max-width:260px;margin:0 auto}
+.glass{width:100%;background:rgba(255,255,255,.14);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.3);border-radius:10px;padding:12px 16px;color:#fff;font:inherit;font-size:14px;outline:none;transition:background .2s,border-color .2s}
+.glass::placeholder{color:rgba(255,255,255,.65)}
+.glass:focus{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.55)}
+
+/* ================================================
+   06 terminal (fixed dark)
+   ================================================ */
+
+.terminal{display:flex;align-items:center;gap:8px;width:100%;max-width:260px;background:#000;border:1px solid #1a3a2a;border-radius:6px;padding:10px 14px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.terminal .prompt{color:#5ddc9f;font-size:13px;user-select:none}
+.terminal input{flex:1;background:transparent;border:none;color:#5ddc9f;font:inherit;font-size:13px;outline:none;caret-color:#5ddc9f;letter-spacing:.02em}
+.terminal input::placeholder{color:#2a5a42}
+
+/* ================================================
+   07 float (themable)
+   ================================================ */
+
+.float-field{position:relative;display:block;width:100%;max-width:260px}
+.float-field input{width:100%;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:20px 16px 8px;color:var(--fg);font:inherit;font-size:14px;outline:none;transition:border-color .2s}
+.float-field input:focus{border-color:var(--gold)}
+.float-field span{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:13px;pointer-events:none;transition:all .2s}
+.float-field input:focus+span,.float-field input:not(:placeholder-shown)+span{top:8px;transform:none;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+
+/* ================================================
+   08 magnet (themable)
+   ================================================ */
+
+.magnet-wrap{position:relative;width:100%;max-width:260px;border-radius:10px;padding:2px;background:var(--border);overflow:hidden}
+.magnet-wrap::before{content:"";position:absolute;inset:-2px;background:radial-gradient(circle 120px at var(--mx,50%) var(--my,50%),var(--gold),transparent 70%);opacity:0;transition:opacity .3s;z-index:0}
+.magnet-wrap:focus-within::before{opacity:1}
+.magnet{position:relative;z-index:1;width:100%;background:var(--bg);border:none;border-radius:8px;padding:12px 16px;color:var(--fg);font:inherit;font-size:14px;outline:none}
+.magnet::placeholder{color:var(--muted)}
+
+/* ================================================
+   09 outline (themable)
+   ================================================ */
+
+.outline{width:100%;max-width:260px;background:transparent;border:1px solid var(--border-strong);padding:10px 14px;color:var(--fg);font:inherit;font-size:14px;outline:none;border-radius:6px;transition:border-color .2s,box-shadow .2s}
+.outline::placeholder{color:var(--muted)}
+.outline:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-faint)}
+
+/* ================================================
+   10 diagonal (themable)
+   ================================================ */
+
+.diagonal{width:100%;max-width:260px;background:linear-gradient(135deg,var(--surface-2) 0%,var(--surface-2) 88%,var(--gold) 88%);border:none;padding:12px 16px;color:var(--fg);font:inherit;font-size:14px;outline:none;transition:background .2s}
+.diagonal::placeholder{color:var(--muted)}
+
+/* ================================================
+   11 retro (fixed dark)
+   ================================================ */
+
+.retro{width:100%;max-width:260px;background:#000;border:2px solid #0ff;border-radius:0;padding:10px 16px;color:#0ff;font-family:ui-monospace,monospace;font-size:13px;outline:none;box-shadow:inset 0 0 0 2px #000,inset 0 0 0 3px #f0f;transition:box-shadow .2s}
+.retro::placeholder{color:#0aa}
+.retro:focus{box-shadow:inset 0 0 0 2px #000,inset 0 0 0 3px #f0f,0 0 20px rgba(0,255,255,.4)}
+
+/* ================================================
+   12 ios (themable)
+   ================================================ */
+
+.ios{width:100%;max-width:260px;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:12px 16px;color:var(--fg);font:inherit;font-size:14px;outline:none;transition:border-color .2s}
+.ios::placeholder{color:var(--muted)}
+.ios:focus{border-color:#0a84ff}
+
+/* ================================================
+   13 gradient (themable)
+   ================================================ */
+
+.gradient{width:100%;max-width:260px;background:var(--surface);border:2px solid transparent;border-radius:10px;padding:12px 18px;color:var(--fg);font:inherit;font-size:14px;outline:none;background-image:linear-gradient(var(--surface),var(--surface)),linear-gradient(135deg,#667eea,#f093fb);background-origin:border-box;background-clip:padding-box,border-box}
+.gradient::placeholder{color:var(--muted)}
+
+/* ================================================
+   14 pill (themable)
+   ================================================ */
+
+.pill{width:100%;max-width:260px;background:var(--surface-2);border:1px solid var(--border);border-radius:999px;padding:12px 20px;color:var(--fg);font:inherit;font-size:14px;outline:none;transition:border-color .2s,background .2s}
+.pill::placeholder{color:var(--muted)}
+.pill:focus{border-color:var(--gold)}
+
+/* ================================================
+   15 paper (fixed light)
+   ================================================ */
+
+.paper{width:100%;max-width:260px;background:#f5f1e8;background-image:repeating-linear-gradient(transparent 0,transparent 27px,rgba(0,0,0,.08) 27px,rgba(0,0,0,.08) 28px);border:1px solid #d4cdb8;border-radius:4px;padding:8px 14px;color:#2c2c2c;font-family:Georgia,serif;font-size:14px;line-height:28px;outline:none}
+.paper::placeholder{color:#a8a08a}
+
+/* ================================================
+   16 lift (themable)
+   ================================================ */
+
+.lift{width:100%;max-width:260px;background:var(--surface-2);border:none;border-radius:8px;padding:12px 16px;color:var(--fg);font:inherit;font-size:14px;outline:none;box-shadow:0 2px 4px rgba(0,0,0,.2);transition:box-shadow .2s,transform .2s}
+.lift::placeholder{color:var(--muted)}
+.lift:focus{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25),0 0 0 2px var(--gold-faint)}
+
+/* ================================================
+   17 dashed (themable)
+   ================================================ */
+
+.dashed{width:100%;max-width:260px;background:transparent;border:2px dashed var(--border-strong);border-radius:8px;padding:12px 16px;color:var(--fg);font:inherit;font-size:14px;outline:none;transition:border-color .2s,border-style .2s}
+.dashed::placeholder{color:var(--muted)}
+.dashed:focus{border-color:var(--gold);border-style:solid}
+
+/* ================================================
+   18 ribbon (themable)
+   ================================================ */
+
+.ribbon-wrap{position:relative;width:100%;max-width:260px}
+.ribbon{width:100%;background:var(--surface-2);border:1px solid var(--border);border-radius:6px;padding:14px 16px;color:var(--fg);font:inherit;font-size:14px;outline:none;transition:border-color .2s}
+.ribbon::placeholder{color:var(--muted)}
+.ribbon:focus{border-color:var(--gold)}
+.ribbon-tag{position:absolute;top:-9px;left:12px;background:var(--gold);color:#0a0a0a;font-size:9px;font-weight:700;letter-spacing:.14em;padding:2px 8px;border-radius:3px;text-transform:uppercase}
+
+/* ================================================
+   19 inset (themable)
+   ================================================ */
+
+.inset{width:100%;max-width:260px;background:var(--bg);border:none;border-radius:6px;padding:12px 16px;color:var(--fg);font:inherit;font-size:14px;outline:none;box-shadow:inset 0 2px 4px rgba(0,0,0,.15),inset 0 -1px 0 rgba(255,255,255,.04);transition:box-shadow .2s}
+.inset::placeholder{color:var(--muted)}
+.inset:focus{box-shadow:inset 0 2px 4px rgba(0,0,0,.15),inset 0 0 0 1px var(--gold-dim)}
+
+/* ================================================
+   20 soft (themable)
+   ================================================ */
+
+.soft{width:100%;max-width:260px;background:var(--gold-faint);border:none;border-radius:10px;padding:12px 16px;color:var(--fg);font:inherit;font-size:14px;outline:none;transition:background .2s}
+.soft::placeholder{color:var(--gold-dim)}
+.soft:focus{background:var(--gold-faint)}
+
+/* ================================================
+   21 cosmic (fixed dark)
+   ================================================ */
+
+.cosmic{width:100%;max-width:260px;background:#0a0a1a;background-image:radial-gradient(circle at 20% 30%,rgba(255,255,255,.8) 0,transparent 1.5px),radial-gradient(circle at 80% 60%,rgba(255,255,255,.6) 0,transparent 1.5px),radial-gradient(circle at 40% 80%,rgba(255,255,255,.7) 0,transparent 1.5px),radial-gradient(circle at 90% 20%,rgba(255,255,255,.5) 0,transparent 1.5px),radial-gradient(circle at 60% 10%,rgba(255,255,255,.6) 0,transparent 1.5px);border:1px solid #2a2a4a;border-radius:8px;padding:12px 16px;color:#e8e8f0;font:inherit;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s}
+.cosmic::placeholder{color:#5a5a8a}
+.cosmic:focus{border-color:#6a6af0;box-shadow:0 0 20px rgba(106,106,240,.4)}
+
+/* ================================================
+   22 code (fixed dark)
+   ================================================ */
+
+.code{width:100%;max-width:260px;background:#1e1e1e;border:1px solid #333;border-left:3px solid #007acc;border-radius:4px;padding:10px 14px;color:#ce9178;font-family:ui-monospace,monospace;font-size:13px;outline:none;transition:border-color .2s}
+.code::placeholder{color:#555}
+.code:focus{border-color:#007acc}
+
+/* ================================================
+   23 vapor (fixed dark)
+   ================================================ */
+
+.vapor{width:100%;max-width:260px;background:#1a0a2a;border:2px solid #ff2fb3;border-radius:0;padding:12px 16px;color:#ff2fb3;font-family:ui-monospace,monospace;font-size:13px;letter-spacing:.05em;outline:none;text-shadow:1px 1px 0 #00ffff;box-shadow:4px 4px 0 #00ffff;transition:box-shadow .2s,transform .2s}
+.vapor::placeholder{color:#6a2a6a;text-shadow:none}
+.vapor:focus{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #00ffff}
+
+/* ================================================
+   24 notched (themable)
+   ================================================ */
+
+.notched{width:100%;max-width:260px;background:var(--surface-2);border:none;padding:14px 20px;color:var(--fg);font:inherit;font-size:14px;outline:none;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);transition:background .2s}
+.notched::placeholder{color:var(--muted)}
+.notched:focus{background:var(--hover)}
+
+/* ================================================
+   25 double (themable)
+   ================================================ */
+
+.double{width:100%;max-width:260px;background:transparent;border:3px double var(--border-strong);padding:12px 16px;color:var(--fg);font:inherit;font-size:14px;outline:none;transition:border-color .2s}
+.double::placeholder{color:var(--muted)}
+.double:focus{border-color:var(--gold)}
+
+/* ================================================
+   26 shimmer (themable)
+   ================================================ */
+
+.shimmer{width:100%;max-width:260px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;color:var(--fg);font:inherit;font-size:14px;outline:none;background-image:linear-gradient(90deg,transparent 0,transparent 40%,var(--gold-faint) 50%,transparent 60%,transparent 100%);background-size:200% 100%;transition:border-color .2s}
+.shimmer::placeholder{color:var(--muted)}
+.shimmer:focus{border-color:var(--gold);animation:shimmer 2s linear infinite}
+@keyframes shimmer{to{background-position:-200% 0}}
+
+/* ================================================
+   27 chrome (themable)
+   ================================================ */
+
+.chrome{width:100%;max-width:260px;background:var(--surface);border:2px solid transparent;border-radius:6px;padding:12px 16px;color:var(--fg);font:inherit;font-size:14px;outline:none;background-image:linear-gradient(var(--surface),var(--surface)),linear-gradient(135deg,#888 0%,#e0e0e0 20%,#666 40%,#e0e0e0 60%,#666 80%,#e0e0e0 100%);background-origin:border-box;background-clip:padding-box,border-box}
+.chrome::placeholder{color:var(--muted)}
+
+/* ================================================
+   28 sketch (themable)
+   ================================================ */
+
+.sketch{width:100%;max-width:260px;background:transparent;border:2px solid var(--border-strong);border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:14px 22px;color:var(--fg);font:inherit;font-size:14px;outline:none;transition:border-color .2s}
+.sketch::placeholder{color:var(--muted)}
+.sketch:focus{border-color:var(--gold)}
+
+/* ================================================
+   29 dotline (themable)
+   ================================================ */
+
+.dotline{width:100%;max-width:260px;background:transparent;border:none;border-bottom:2px dotted var(--border-strong);padding:10px 4px;color:var(--fg);font:inherit;font-size:15px;outline:none;transition:border-color .2s,border-style .2s}
+.dotline::placeholder{color:var(--muted)}
+.dotline:focus{border-bottom-color:var(--gold);border-bottom-style:solid}
+
+/* ================================================
+   30 mist (fixed warm)
+   ================================================ */
+
+.mist{width:100%;max-width:260px;background:linear-gradient(135deg,rgba(247,211,84,.1),rgba(255,107,53,.1));border:1px solid rgba(247,211,84,.2);border-radius:12px;padding:14px 18px;color:var(--fg);font:inherit;font-size:14px;outline:none;backdrop-filter:blur(6px);transition:border-color .2s,background .2s}
+.mist::placeholder{color:rgba(247,211,84,.5)}
+.mist:focus{border-color:rgba(247,211,84,.55);background:linear-gradient(135deg,rgba(247,211,84,.16),rgba(255,107,53,.16))}
+
+/* ================================================
+   31 runic (fixed dark warm)
+   ================================================ */
+
+.runic{width:100%;max-width:260px;border:none;padding:14px 20px;color:#f7d354;font-family:ui-monospace,monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;outline:none;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));background:#1a1408;transition:background .2s}
+.runic::placeholder{color:#6a5020}
+.runic:focus{background:#2a2010}
+
+/* ================================================
+   32 glow (themable)
+   ================================================ */
+
+.glow{width:100%;max-width:260px;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px 16px;color:var(--fg);font:inherit;font-size:14px;outline:none;transition:box-shadow .3s,border-color .3s}
+.glow::placeholder{color:var(--muted)}
+.glow:focus{border-color:var(--gold);box-shadow:0 0 24px var(--gold-dim),0 0 0 3px var(--gold-faint)}

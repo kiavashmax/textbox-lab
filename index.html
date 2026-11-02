@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Textbox Lab</title>
+<meta name="description" content="Thirty-two text input designs. Click any card to copy its CSS.">
+<meta name="author" content="Kiavash (@kiavashmax)">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:title" content="Textbox Lab">
+<meta property="og:description" content="Thirty-two text input designs, each with a copy button.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a0a'/%3E%3Crect x='14' y='22' width='36' height='20' rx='4' fill='none' stroke='%23f7d354' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+<div class="brand">
+<h1 class="title">Textbox Lab</h1>
+<p class="tag">thirty-two ways to say &ldquo;type here&rdquo;</p>
+</div>
+<button type="button" class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+<span class="theme-icon">&#9790;</span>
+<span class="theme-label">Dark</span>
+</button>
+</header>
+
+<main class="grid">
+
+<article class="card"><div class="demo"><label class="ghost"><input type="text" placeholder=" "><span>Your name</span></label></div><div class="meta"><div class="num">01</div><h2>Ghost</h2><p>Underline grows from the middle.</p></div><button type="button" class="copy-btn" data-key="ghost">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="neon" placeholder="Message"></div><div class="meta"><div class="num">02</div><h2>Neon</h2><p>Glowing border that pulses on focus.</p></div><button type="button" class="copy-btn" data-key="neon">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="brutal" placeholder="Say something"></div><div class="meta"><div class="num">03</div><h2>Brutal</h2><p>Hard shadow, lifts on focus.</p></div><button type="button" class="copy-btn" data-key="brutal">Copy CSS</button></article>
+
+<article class="card"><div class="demo demo-neumorph"><div class="neumorph"><input type="text" placeholder="Search"></div></div><div class="meta"><div class="num">04</div><h2>Neumorph</h2><p>Inset shadows carve it out.</p></div><button type="button" class="copy-btn" data-key="neumorph">Copy CSS</button></article>
+
+<article class="card"><div class="demo demo-glass"><div class="glass-bg"><input type="text" class="glass" placeholder="Email address"></div></div><div class="meta"><div class="num">05</div><h2>Glass</h2><p>Frosted panel over a gradient.</p></div><button type="button" class="copy-btn" data-key="glass">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><div class="terminal"><span class="prompt">$</span><input type="text" placeholder="ls -la" spellcheck="false"></div></div><div class="meta"><div class="num">06</div><h2>Terminal</h2><p>Monospace, green caret.</p></div><button type="button" class="copy-btn" data-key="terminal">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><label class="float-field"><input type="text" placeholder=" "><span>Username</span></label></div><div class="meta"><div class="num">07</div><h2>Float</h2><p>Label rises into the border.</p></div><button type="button" class="copy-btn" data-key="float">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><div class="magnet-wrap"><input type="text" class="magnet" placeholder="Move your mouse"></div></div><div class="meta"><div class="num">08</div><h2>Magnetic</h2><p>Border light follows cursor.</p></div><button type="button" class="copy-btn" data-key="magnet">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="outline" placeholder="Type here"></div><div class="meta"><div class="num">09</div><h2>Outline</h2><p>Thickens on focus with a soft halo.</p></div><button type="button" class="copy-btn" data-key="outline">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="diagonal" placeholder="Your email"></div><div class="meta"><div class="num">10</div><h2>Diagonal</h2><p>Corner triangle accent.</p></div><button type="button" class="copy-btn" data-key="diagonal">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="retro" placeholder="> type command"></div><div class="meta"><div class="num">11</div><h2>Retro</h2><p>80s neon double border.</p></div><button type="button" class="copy-btn" data-key="retro">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="ios" placeholder="Phone number"></div><div class="meta"><div class="num">12</div><h2>iOS</h2><p>Clean Apple-style rounded field.</p></div><button type="button" class="copy-btn" data-key="ios">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="gradient" placeholder="Gradient border"></div><div class="meta"><div class="num">13</div><h2>Gradient</h2><p>Border drawn from a gradient.</p></div><button type="button" class="copy-btn" data-key="gradient">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="pill" placeholder="Search anything"></div><div class="meta"><div class="num">14</div><h2>Pill</h2><p>Fully rounded search-style.</p></div><button type="button" class="copy-btn" data-key="pill">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="paper" placeholder="Write a note"></div><div class="meta"><div class="num">15</div><h2>Paper</h2><p>Lined notebook look.</p></div><button type="button" class="copy-btn" data-key="paper">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="lift" placeholder="Lifts on focus"></div><div class="meta"><div class="num">16</div><h2>Lift</h2><p>Rises with a deeper shadow.</p></div><button type="button" class="copy-btn" data-key="lift">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="dashed" placeholder="Dashed border"></div><div class="meta"><div class="num">17</div><h2>Dashed</h2><p>Becomes solid gold on focus.</p></div><button type="button" class="copy-btn" data-key="dashed">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><div class="ribbon-wrap"><span class="ribbon-tag">New</span><input type="text" class="ribbon" placeholder="Sign up"></div></div><div class="meta"><div class="num">18</div><h2>Ribbon</h2><p>Gold tag on the top edge.</p></div><button type="button" class="copy-btn" data-key="ribbon">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="inset" placeholder="Inset pressed look"></div><div class="meta"><div class="num">19</div><h2>Inset</h2><p>Depressed into the surface.</p></div><button type="button" class="copy-btn" data-key="inset">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="soft" placeholder="Soft tint"></div><div class="meta"><div class="num">20</div><h2>Soft</h2><p>Borderless, warm tint.</p></div><button type="button" class="copy-btn" data-key="soft">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="cosmic" placeholder="Enter orbit"></div><div class="meta"><div class="num">21</div><h2>Cosmic</h2><p>Starfield background.</p></div><button type="button" class="copy-btn" data-key="cosmic">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="code" placeholder="const x = 42"></div><div class="meta"><div class="num">22</div><h2>Code</h2><p>Editor-style with side accent.</p></div><button type="button" class="copy-btn" data-key="code">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="vapor" placeholder="A E S T H E T I C"></div><div class="meta"><div class="num">23</div><h2>Vapor</h2><p>Vaporwave chroma shadow.</p></div><button type="button" class="copy-btn" data-key="vapor">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="notched" placeholder="Cut corners"></div><div class="meta"><div class="num">24</div><h2>Notched</h2><p>Clip-path cut off two corners.</p></div><button type="button" class="copy-btn" data-key="notched">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="double" placeholder="Double border"></div><div class="meta"><div class="num">25</div><h2>Double</h2><p>Classic 3px double border.</p></div><button type="button" class="copy-btn" data-key="double">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="shimmer" placeholder="Loading..."></div><div class="meta"><div class="num">26</div><h2>Shimmer</h2><p>Light sweep across the field.</p></div><button type="button" class="copy-btn" data-key="shimmer">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="chrome" placeholder="Metallic border"></div><div class="meta"><div class="num">27</div><h2>Chrome</h2><p>Polished metal gradient border.</p></div><button type="button" class="copy-btn" data-key="chrome">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="sketch" placeholder="Hand-drawn"></div><div class="meta"><div class="num">28</div><h2>Sketch</h2><p>Wobbly border-radius trick.</p></div><button type="button" class="copy-btn" data-key="sketch">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="dotline" placeholder="Dotted underline"></div><div class="meta"><div class="num">29</div><h2>Dotline</h2><p>Dotted line becomes solid gold.</p></div><button type="button" class="copy-btn" data-key="dotline">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="mist" placeholder="Frosted gold"></div><div class="meta"><div class="num">30</div><h2>Mist</h2><p>Blurred warm gradient tint.</p></div><button type="button" class="copy-btn" data-key="mist">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="runic" placeholder="runes"></div><div class="meta"><div class="num">31</div><h2>Runic</h2><p>Angled corners, uppercase gold.</p></div><button type="button" class="copy-btn" data-key="runic">Copy CSS</button></article>
+
+<article class="card"><div class="demo"><input type="text" class="glow" placeholder="Glow on focus"></div><div class="meta"><div class="num">32</div><h2>Glow</h2><p>Soft golden halo bleeds outward.</p></div><button type="button" class="copy-btn" data-key="glow">Copy CSS</button></article>
+
+</main>
+
+<footer class="foot">
+<span class="hint">Click any box and start typing.</span>
+<span class="copy">&copy; 2026 <a href="https://github.com/kiavashmax" target="_blank" rel="noopener">@kiavashmax</a> &middot; MIT</span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
